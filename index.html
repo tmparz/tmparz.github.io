@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>阿茲 Arzbar｜AI 問題解決師</title>
+<meta name="description" content="阿茲｜AI 問題解決師。把卡住的工作流程拆清楚，判斷 AI、自動化、API 與資料系統該放在哪裡，做成真正能運作的解法。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Press+Start+2P&display=swap">
+<style>
+:root{--bg:#f4eadc;--paper:#fff7ec;--paper2:#ead8c6;--ink:#2e211b;--muted:#7c6658;--terra:#b85f3c;--terra2:#d7835d;--ochre:#e2bd62;--sage:#8d9a77;--line:#cdb49e;--pixel:"Press Start 2P",ui-monospace,monospace;--sans:"Noto Sans TC",system-ui,-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(rgba(46,33,27,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(46,33,27,.055) 1px,transparent 1px),var(--bg);background-size:24px 24px;color:var(--ink);font-family:var(--sans);line-height:1.75}a{color:inherit}.wrap{width:min(1120px,calc(100% - 32px));margin:auto}.tag{font:700 10px/1.5 var(--pixel);letter-spacing:.03em}.muted{color:var(--muted)}.frame{border:3px solid var(--ink);background:var(--paper);box-shadow:8px 8px 0 var(--ink)}.pixel-corners{clip-path:polygon(0 10px,10px 10px,10px 0,calc(100% - 10px) 0,calc(100% - 10px) 10px,100% 10px,100% calc(100% - 10px),calc(100% - 10px) calc(100% - 10px),calc(100% - 10px) 100%,10px 100%,10px calc(100% - 10px),0 calc(100% - 10px))}
+.hud{position:sticky;top:0;z-index:20;background:rgba(244,234,220,.95);backdrop-filter:blur(10px);border-bottom:3px solid var(--ink)}.hud-row{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;min-height:74px}.brand{display:flex;align-items:center;gap:11px;text-decoration:none;font-weight:900}.avatar{width:42px;height:42px;display:grid;place-items:center;background:var(--terra);color:var(--paper);border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);font:700 14px var(--pixel)}.brand small{display:block;color:var(--muted);font:400 9px/1.5 var(--pixel);margin-top:4px}.progress-shell{height:16px;border:3px solid var(--ink);background:var(--paper);padding:2px}.progress{height:100%;width:0;background:repeating-linear-gradient(90deg,var(--terra) 0 12px,var(--terra2) 12px 24px)}.hud-cta{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 14px;background:var(--ochre);border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);font-weight:900;text-decoration:none}.hud-cta:active{transform:translate(4px,4px);box-shadow:none}
+.hero{padding:64px 0 36px}.world{display:inline-flex;padding:9px 12px;background:var(--ink);color:var(--paper);font:700 9px var(--pixel)}.hero-grid{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(320px,.88fr);gap:38px;align-items:center;margin-top:26px}h1,h2,h3,p{margin-top:0}h1{font-size:clamp(44px,7vw,82px);line-height:1.08;letter-spacing:-.04em;margin-bottom:22px}.hero-copy{font-size:19px;color:var(--muted);max-width:40em}.hero-copy strong{color:var(--ink)}.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 20px;border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink);font-weight:900;text-decoration:none;background:var(--paper)}.btn.primary{background:var(--terra);color:#fff7ec}.btn:active{transform:translate(6px,6px);box-shadow:none}.console{padding:22px;background:var(--paper2)}.console-head{display:flex;justify-content:space-between;gap:12px;border-bottom:3px solid var(--ink);padding-bottom:12px;margin-bottom:16px}.console-screen{min-height:340px;background:var(--ink);color:#f8e9d8;padding:22px;display:grid;align-content:space-between;position:relative;overflow:hidden}.console-screen:before{content:"";position:absolute;width:74px;height:74px;right:20px;top:20px;background:var(--terra);box-shadow:-18px 18px 0 var(--ochre),-36px 36px 0 var(--sage)}.console-screen:after{content:"";position:absolute;width:130px;height:14px;left:22px;bottom:22px;background:var(--terra);box-shadow:0 -22px 0 var(--terra2),0 -44px 0 var(--ochre)}.console-code{position:relative;z-index:2;font:400 10px/2 var(--pixel);max-width:72%}.console-title{position:relative;z-index:2;font-weight:900;font-size:clamp(26px,4vw,42px);line-height:1.2;max-width:8em;margin:0 0 86px}
+.scene{padding:92px 0 12px;scroll-margin-top:86px}.scene-head{display:grid;grid-template-columns:160px 1fr;gap:30px;align-items:start;margin-bottom:30px}.scene-no{display:inline-grid;place-items:center;width:92px;height:92px;background:var(--ochre);border:3px solid var(--ink);box-shadow:7px 7px 0 var(--ink);font:700 13px var(--pixel);text-align:center}.scene h2{font-size:clamp(34px,5vw,58px);line-height:1.16;letter-spacing:-.03em;margin-bottom:12px}.scene-lede{font-size:18px;color:var(--muted);max-width:42em}
+.before-after{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:stretch}.state{padding:28px;min-height:360px}.state.old{background:#e6d5c5}.state.new{background:#f9eed8}.state h3{font-size:30px;margin-bottom:20px}.stack{display:grid;gap:12px}.block{border:3px solid var(--ink);padding:14px 16px;background:var(--paper);font-weight:800;box-shadow:4px 4px 0 var(--ink)}.old .block:nth-child(2){transform:translateX(28px)}.old .block:nth-child(3){transform:translateX(-12px)}.old .block:nth-child(4){transform:translateX(38px)}.new .block{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fffaf0}.arrow{display:grid;place-items:center;font:700 20px var(--pixel);color:var(--terra)}.result-line{margin-top:22px;font-weight:900;color:var(--terra)}
+.system-map{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.module{padding:22px;min-height:190px;position:relative;overflow:hidden}.module:after{content:"";position:absolute;width:26px;height:26px;background:var(--ochre);right:14px;bottom:14px;box-shadow:-13px -13px 0 var(--terra)}.module .n{font:700 9px var(--pixel);color:var(--terra)}.module h3{font-size:26px;margin:12px 0 8px}.module p{color:var(--muted);margin:0;max-width:22em}.core{grid-column:2;background:var(--terra);color:#fff7ec;padding:28px;text-align:center;display:grid;place-items:center;min-height:220px}.core .tag{color:#f6d99c}.core h3{font-size:36px;margin:12px 0}
+.meters{display:grid;gap:18px;padding:28px}.meter-row{display:grid;grid-template-columns:180px 1fr 80px;gap:16px;align-items:center}.meter-label{font-weight:900}.meter-track{height:36px;border:3px solid var(--ink);background:var(--paper);padding:4px}.meter-track span{display:block;height:100%;background:var(--terra)}.meter-track.good span{background:var(--sage)}.status{font:700 8px var(--pixel);text-align:right}.compare-note{margin-top:24px;padding:20px 22px;border-left:8px solid var(--ochre);background:var(--paper);font-weight:800}
+.cases{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.case{padding:26px;position:relative;overflow:hidden}.case:before{content:"";position:absolute;inset:0 auto auto 0;width:100%;height:9px;background:linear-gradient(90deg,var(--terra) 0 33%,var(--ochre) 33% 66%,var(--sage) 66%)}.case-type{font:700 8px var(--pixel);color:var(--terra);margin:10px 0 16px}.case h3{font-size:27px;margin-bottom:10px}.case p{color:var(--muted);margin-bottom:0}
+.final{padding:110px 0 80px}.final-card{padding:clamp(30px,6vw,64px);background:var(--ink);color:#fff7ec;position:relative;overflow:hidden}.final-card:before{content:"";position:absolute;width:210px;height:210px;background:var(--terra);right:-30px;top:-30px;box-shadow:-40px 40px 0 var(--ochre),-80px 80px 0 var(--sage);opacity:.92}.final-inner{position:relative;z-index:2;max-width:700px}.final h2{font-size:clamp(40px,6vw,70px);line-height:1.08;margin:18px 0}.final p{font-size:18px;color:#e5d2c2;max-width:36em}.final .btn{margin-top:24px;background:var(--ochre);color:var(--ink)}footer{padding:26px 0 46px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:var(--muted);font-size:13px}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.scene-head{grid-template-columns:110px 1fr}.before-after{grid-template-columns:1fr}.arrow{transform:rotate(90deg);min-height:54px}.system-map{grid-template-columns:1fr 1fr}.core{grid-column:auto}}
+@media(max-width:680px){.wrap{width:min(100% - 22px,1120px)}.hud-row{grid-template-columns:auto 1fr;min-height:68px}.progress-shell{display:none}.brand span:last-child{display:none}.hero{padding-top:42px}.hero-grid{gap:24px}.console-screen{min-height:300px}.scene{padding-top:72px}.scene-head{grid-template-columns:1fr;gap:18px}.scene-no{width:76px;height:76px}.system-map,.cases{grid-template-columns:1fr}.meter-row{grid-template-columns:1fr}.status{text-align:left}.state{min-height:0}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="hud"><div class="wrap hud-row">
+<a class="brand" href="#top"><span class="avatar">AZ</span><span>阿茲 Arzbar<small>AI PROBLEM SOLVER</small></span></a>
+<div class="progress-shell" aria-label="頁面閱讀進度"><div id="progress" class="progress"></div></div>
+<a class="hud-cta" href="https://lin.ee/8PAjp8A" target="_blank" rel="noopener">LINE 找阿茲</a>
+</div></header>
+<main id="top">
+<section class="hero"><div class="wrap">
+<span class="world">WORLD 01 · AI × WORKFLOW</span>
+<div class="hero-grid">
+<div>
+<p class="tag muted">AI 問題解決師 · 阿茲</p>
+<h1>你把問題帶來，<br>我把它拆到<br><span style="color:var(--terra)">AI 真正幫得上忙。</span></h1>
+<p class="hero-copy">我處理的通常不是「要用哪個 AI 工具」，而是<strong>工作到底卡在哪、資料怎麼流、誰在重複做事、哪一步最容易出錯</strong>。把問題拆清楚後，再決定 AI、自動化、API 或系統該放哪裡。</p>
+<div class="hero-actions"><a class="btn primary" href="#scene-1">看我怎麼拆問題 ↓</a><a class="btn" href="https://lin.ee/8PAjp8A" target="_blank" rel="noopener">直接帶問題來</a></div>
+</div>
+<div class="console frame pixel-corners">
+<div class="console-head"><span class="tag">MISSION</span><span class="tag muted">READY</span></div>
+<div class="console-screen"><div class="console-code">INPUT: 卡住的流程<br>SCAN: 資料 / 人 / 系統<br>CHECK: AI 是否必要<br>BUILD: 可運作解法</div><p class="console-title">把混亂<br>整理成<br>能跑的流程。</p></div>
+</div>
+</div></div></section>
+
+<section id="scene-1" class="scene"><div class="wrap">
+<div class="scene-head"><div class="scene-no">STAGE<br>01</div><div><p class="tag muted">OLD → NEW</p><h2>問題通常不是沒工具，<br>是工具之間沒有一條線。</h2><p class="scene-lede">LINE、Excel、表單、後台各自都能用，真正吃人力的是中間那一段：複製、核對、提醒、追進度、補資料。</p></div></div>
+<div class="before-after">
+<article class="state old frame"><p class="tag">BEFORE</p><h3>每天靠人搬資料</h3><div class="stack"><div class="block">LINE 客戶訊息</div><div class="block">Google / 紙本表單</div><div class="block">Excel / Sheet</div><div class="block">後台 / 訂單 / 通知</div></div><p class="result-line">→ 同一件事，四個地方都要記得。</p></article>
+<div class="arrow">→</div>
+<article class="state new frame"><p class="tag">AFTER</p><h3>讓流程自己往下走</h3><div class="stack"><div class="block"><span>客戶進件</span><span>01</span></div><div class="block"><span>資料整理</span><span>02</span></div><div class="block"><span>AI / 規則判斷</span><span>03</span></div><div class="block"><span>通知與回寫</span><span>04</span></div></div><p class="result-line">→ 人只處理真的需要人的部分。</p></article>
+</div></div></section>
+
+<section id="scene-2" class="scene"><div class="wrap">
+<div class="scene-head"><div class="scene-no">STAGE<br>02</div><div><p class="tag muted">CORE + MODULES</p><h2>我不是先選工具，<br>我先把解法拆成六個模組。</h2><p class="scene-lede">工具會一直換，但解題順序很穩定。先看現場，再決定哪一段需要 AI、哪一段只是流程與系統整合。</p></div></div>
+<div class="system-map">
+<article class="module frame"><span class="n">01</span><h3>診斷</h3><p>把「很亂、很忙、很容易漏」拆成具體事件。</p></article>
+<article class="core frame"><div><span class="tag">CORE</span><h3>問題解決</h3><p>AI 是工具，真正要優化的是整條工作流程。</p></div></article>
+<article class="module frame"><span class="n">02</span><h3>流程</h3><p>畫出人、資料、系統現在怎麼互相傳遞。</p></article>
+<article class="module frame"><span class="n">03</span><h3>資料</h3><p>定義來源、欄位、狀態與誰才是正確版本。</p></article>
+<article class="module frame"><span class="n">04</span><h3>AI</h3><p>放在分類、摘要、判斷、知識查詢等真正有價值的位置。</p></article>
+<article class="module frame"><span class="n">05</span><h3>系統串接</h3><p>API、Webhook、LINE OA、n8n、資料庫接成一條線。</p></article>
+<article class="module frame"><span class="n">06</span><h3>驗證</h3><p>從錯誤、例外、人工接手點確認它真的能長期運作。</p></article>
+</div></div></section>
+
+<section id="scene-3" class="scene"><div class="wrap">
+<div class="scene-head"><div class="scene-no">STAGE<br>03</div><div><p class="tag muted">COST OF WORK</p><h2>真正要省的，<br>是每天被重複工作吃掉的注意力。</h2><p class="scene-lede">我不先承諾「省幾成成本」。我會先找出哪一種消耗最重，再把它變成可被系統處理的狀態。</p></div></div>
+<div class="meters frame">
+<div class="meter-row"><div class="meter-label">重複輸入資料</div><div class="meter-track"><span style="width:92%"></span></div><div class="status">HEAVY</div></div>
+<div class="meter-row"><div class="meter-label">人工追進度</div><div class="meter-track"><span style="width:78%"></span></div><div class="status">HEAVY</div></div>
+<div class="meter-row"><div class="meter-label">系統自動同步</div><div class="meter-track good"><span style="width:72%"></span></div><div class="status">BETTER</div></div>
+<div class="meter-row"><div class="meter-label">人處理例外</div><div class="meter-track good"><span style="width:46%"></span></div><div class="status">FOCUS</div></div>
+</div><p class="compare-note">目標不是把人拿掉，而是把人從「搬資料、找資料、記得提醒」移到真正需要判斷與溝通的地方。</p>
+</div></section>
+
+<section id="scene-4" class="scene"><div class="wrap">
+<div class="scene-head"><div class="scene-no">STAGE<br>04</div><div><p class="tag muted">REAL CASES</p><h2>我做過的事，<br>都從一個卡住的流程開始。</h2><p class="scene-lede">不同產業的技術不同，但底層都是同一件事：把資料、狀態與下一步接起來。</p></div></div>
+<div class="cases">
+<article class="case frame"><p class="case-type">PAYMENT × API</p><h3>跨境支付與銷帳</h3><p>把多個交易節點、Callback、AML 與帳務狀態接在一起，讓資料可追、可驗證。</p></article>
+<article class="case frame"><p class="case-type">LINE × WORKFLOW</p><h3>LINE OA 客戶流程</h3><p>從詢問、報名、付款、提醒到後台紀錄，把原本靠人記得的工作交給流程。</p></article>
+<article class="case frame"><p class="case-type">AI × KNOWLEDGE</p><h3>聊天變公司知識</h3><p>從大量訊息擷取重點、待辦與摘要，讓資訊不再只留在聊天紀錄與人腦裡。</p></article>
+<article class="case frame"><p class="case-type">SYSTEM × AUTOMATION</p><h3>小團隊自動化</h3><p>把表單、資料庫、通知與第三方服務串起來，減少每天重複處理的工作。</p></article>
+</div></div></section>
+
+<section class="final"><div class="wrap"><div class="final-card frame pixel-corners"><div class="final-inner">
+<p class="tag">FINAL STAGE · TALK TO ARZBAR</p><h2>不用先想好<br>要不要導 AI。</h2><p>帶一件最卡的事來就好。告訴我現在怎麼做、哪一步最花時間、如果它順了你想得到什麼。我會從問題本身開始拆。</p><a class="btn" href="https://lin.ee/8PAjp8A" target="_blank" rel="noopener">加 LINE 找阿茲聊聊 →</a>
+</div></div></div></section>
+</main>
+<footer class="wrap"><span>© 2026 阿茲 Arzbar · AI 問題解決師</span><span class="tag">PROBLEM → FLOW → SYSTEM → RESULT</span></footer>
+<script>
+(function(){
+var bar=document.getElementById('progress');
+function update(){var doc=document.documentElement,max=doc.scrollHeight-doc.clientHeight,p=max>0?(doc.scrollTop/max)*100:0;bar.style.width=Math.max(0,Math.min(100,p))+'%'}
+update();document.addEventListener('scroll',update,{passive:true});window.addEventListener('resize',update);
+})();
+</script>
+</body>
+</html>
